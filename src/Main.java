@@ -40,20 +40,48 @@ public class Main {
         }
         return min;
     }
-public static <T extends Number>double finAverage(T[]arr){
-        double result=0;
-        for(T num:arr){
-            result+= num.doubleValue();
+
+    public static <T extends Number> double finAverage(T[] arr) {
+        double result = 0;
+        for (T num : arr) {
+            result += num.doubleValue();
         }
-        return result/ arr.length;
-}
+        return result / arr.length;
+    }
+
+    public static <T extends Comparable<T>> T findMaxArray(T[] arr) {
+        T max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i].compareTo(max) > 0) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+    public static <T extends Comparable<T>> T findMinArray(T[]arr){
+        T min=arr[0];
+        for(int i=1;i<arr.length;i++){
+            if(arr[i].compareTo(min)<0){
+                min=arr[i];
+            }
+        }
+        return min;
+    }
+
     public static void main(String[] args) {
         Integer max = getMax(10, 185, 310);
         System.out.println("Max number= " + max);
-        Integer min=getMIn(10,251,5,48,66);
-        System.out.println("Min number= "+min);
-        Integer[] integers={2,4,8,7,4,7,4,6,1};
-        System.out.println("Average array= "+finAverage(integers));
+        Integer min = getMIn(10, 251, 5, 48, 66);
+        System.out.println("Min number= " + min);
+        Integer[] integers = {2, 4, 8, 7, 4, 7, 4, 6, 1};
+        System.out.println("Average array= " + finAverage(integers));
+        Integer[] integers1 = {45, 8, 4252, 48, 99, 995643, 45, 28};
+        Double[] doubles={4.5,45.2,98.1};
+        String[]strings={"21","4555","65"};
+        System.out.println("Max in array= " + findMaxArray(integers1));
+        System.out.println("Min in array= "+findMinArray(doubles));
+        System.out.println("Min in array= "+findMinArray(integers1));
+        System.out.println("Min in array= "+findMinArray(strings));
 
     }
 }

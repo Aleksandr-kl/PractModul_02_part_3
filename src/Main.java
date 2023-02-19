@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     //    Завдання 1:
 //    Напишіть шаблонний метод, що повертає максимум із трьох переданих параметрів.
@@ -11,8 +13,6 @@ public class Main {
 //    Реалізуйте шаблонний метод для пошуку мінімуму в масиві.
 //    Завдання 6:
 //    Реалізуйте шаблонний метод для сортування масиву.
-//    Завдання 7:
-//    Реалізуйте шаблонний метод для двійкового пошуку в масиві.
     public static <T extends Comparable<T>> T getMax(T a, T b, T c) {
         T max = a;
         if (b.compareTo(max) > 0) {
@@ -67,6 +67,17 @@ public class Main {
         }
         return min;
     }
+    public static <T extends Comparable<T>>void sortArray(T[]arr){
+       for (int i=0;i<arr.length-1;i++){
+           for(int j=0;j<arr.length-i-1;j++){
+               if(arr[j].compareTo(arr[j+1])>0){
+                   T tmp=arr[j];
+                   arr[j]=arr[j+1];
+                   arr[j+1]=tmp;
+               }
+           }
+       }
+    }
 
     public static void main(String[] args) {
         Integer max = getMax(10, 185, 310);
@@ -82,6 +93,9 @@ public class Main {
         System.out.println("Min in array= "+findMinArray(doubles));
         System.out.println("Min in array= "+findMinArray(integers1));
         System.out.println("Min in array= "+findMinArray(strings));
+        sortArray(integers1);
+        System.out.println("Sorted array  "+Arrays.toString(integers1));
+
 
     }
 }
